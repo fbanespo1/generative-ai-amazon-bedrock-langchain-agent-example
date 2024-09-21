@@ -698,8 +698,8 @@ def invoke_agent(prompt, session_id):
     Invokes Amazon Bedrock-powered LangChain agent with 'prompt' input.
     """
     chat = Chat({'Human': prompt}, session_id)
-    llm = Bedrock(client=bedrock_client, model_id="anthropic.claude-v2:1", region_name=os.environ['AWS_REGION']) # anthropic.claude-instant-v1 / anthropic.claude-3-sonnet-20240229-v1:0
-    llm.model_kwargs = {'max_tokens_to_sample': 350}
+    llm = Bedrock(client=bedrock_client, model_id="anthropic.claude-3-5-sonnet-20240620-v1:0", region_name=os.environ['AWS_REGION']) # anthropic.claude-instant-v1 / anthropic.claude-3-sonnet-20240229-v1:0
+    llm.model_kwargs = {'max_tokens_to_sample': 500}
     lex_agent = FSIAgent(llm, chat.memory)
     
     message = lex_agent.run(input=prompt)
