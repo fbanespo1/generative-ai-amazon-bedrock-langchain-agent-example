@@ -16,7 +16,7 @@ class FSIAgent:
 
     def create_agent(self):
         # Initialize the agent with only the AnyCompany tool
-        anycompany_tool = Tool(name="AnyCompany", func=self.tools_instance.kendra_search, description="Use this tool to answer questions about AnyCompany.")
+        anycompany_tool = Tool(name="MiBanca", func=self.tools_instance.kendra_search, description="Use this tool to answer questions about MiBanca.")
         
         fsi_agent = ConversationalAgent.from_llm_and_tools(
             llm=self.llm,
